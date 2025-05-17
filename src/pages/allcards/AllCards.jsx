@@ -25,7 +25,7 @@ const AllCards = () => {
     return (
         <div className="homepage-page">
             {
-                products.map((item, index) => <ProductCard img={item.imageUrl} name={item.name}></ProductCard>)
+                products.map((item, index) => <ProductCard img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
             }
         </div>
     )

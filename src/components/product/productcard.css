@@ -35,6 +35,12 @@
     margin: 10px 5px;
     text-align: center;
 }
+.product-description-type {
+    margin: 10px 5px;
+    text-align: center;
+    font-style: italic;
+    height: 45px;
+}
 
 .price-button-wrap {
     display: flex;

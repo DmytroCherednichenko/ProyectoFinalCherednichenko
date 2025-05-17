@@ -28,19 +28,17 @@ const Header = () => {
                             <Nav.Link className="text-light" as={Link} to="/">Homepage</Nav.Link>
                             <Nav.Link className="text-light" as={Link} to="/allcards">All Cards</Nav.Link>
                             <NavDropdown title="Filter by Rarity" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Common</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="category/common">Common</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.2">
-                                    Uncommon
-                                </NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="category/uncommon">Uncommon</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.3">Rare</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="category/rare">Rare</NavDropdown.Item>
                             </NavDropdown>
                             {
                                 isAuth && (
                                     <>
-                                        <Nav.Link className="text-light" as={Link} to="/profile/lisa_simpson">Mi Cuenta</Nav.Link>
-                                        <Nav.Link className="text-light" as={Link} to="/admin">Administración</Nav.Link>
+                                        <Nav.Link className="text-light" as={Link} to="/bart_simpson">Account</Nav.Link>
+                                        <Nav.Link className="text-light" as={Link} to="/admin">Admin</Nav.Link>
                                     </>
                                 )
                             }
@@ -48,7 +46,7 @@ const Header = () => {
                         <Nav>
                             {
                                 !isAuth ? (<Nav.Link className="text-light" as={Link} to="/login">Login</Nav.Link>)
-                                    : (<Button variant="light" onClick={() => cerrarSession()}>Logout</Button>)
+                                    : (<Button variant="outline-light" onClick={() => cerrarSession()}>Logout</Button>)
                             }
                             <Nav.Link className="text-light" as={Link} to="/cart"><i className="bi bi-cart"></i></Nav.Link>
                         </Nav>

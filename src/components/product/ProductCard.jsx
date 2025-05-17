@@ -16,6 +16,7 @@ const ProductCard = (props) => { //takes img, name
             <h5 className="product-description">
                 {props.name}
             </h5>
+            <p className="product-description-type">{props.type}, {props.rarity}</p>
             <div className="price-button-wrap">
                 <span className="item-price">
                     {getRandomNumber()}
