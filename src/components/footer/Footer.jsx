@@ -33,7 +33,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer-second-row">
+            <div className="footer-second-row bg-dark">
                 <p>© 2025 Copyright: DmytroCherednichenko.com</p>
             </div>
         </div>

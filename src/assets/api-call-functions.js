@@ -1,4 +1,5 @@
 const BASE_API_URL = "https://api.magicthegathering.io";
+// docs https://docs.magicthegathering.io/
 
 export async function getAllProducts() {
     try {

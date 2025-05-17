@@ -1,6 +1,11 @@
 .homepage-page {
     min-height: 100vh;
     min-width: 100vw;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .homepage-loading {
