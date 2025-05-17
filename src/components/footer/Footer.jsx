@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-second-row bg-dark">
-                <p>© 2025 Copyright: Dmytro Cherednichenko</p>
+                <p>© 2025 Copyright: Dmytro Cherednichenko & Wizards of the Coast, Inc.</p>
             </div>
         </div>
     );

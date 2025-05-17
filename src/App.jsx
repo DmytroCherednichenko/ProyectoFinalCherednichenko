@@ -25,7 +25,7 @@ function App() {
           <Route path='category/:rarity' element={<CategoryPage />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
-          <Route path='/bart_simpson' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
+          <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
           <Route path='/cart' element={<Cart />}></Route>
         </Routes>
         <Footer />

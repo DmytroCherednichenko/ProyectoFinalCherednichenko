@@ -37,7 +37,7 @@ const Header = () => {
                             {
                                 isAuth && (
                                     <>
-                                        <Nav.Link className="text-light" as={Link} to="/bart_simpson">Account</Nav.Link>
+                                        <Nav.Link className="text-light" as={Link} to="profile/bart_simpson">Account</Nav.Link>
                                         <Nav.Link className="text-light" as={Link} to="/admin">Admin</Nav.Link>
                                     </>
                                 )

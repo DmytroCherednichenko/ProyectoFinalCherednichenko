@@ -1,8 +1,15 @@
-import { Container, Spinner } from "react-bootstrap"
+import { Container } from "react-bootstrap"
+import { useParams } from "react-router-dom"
+import "./userprofile.css"
 
-function UserProfile() {
+function UserProfile() { 
+    const {username} = useParams();
+    
+    console.log(username);
     return (
-        <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
+        <Container className="user-profile-page">
+            <h1>Welcome, {username}</h1>
+        </Container>
     )
 }
 
