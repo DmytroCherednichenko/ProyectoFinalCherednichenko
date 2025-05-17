@@ -1,6 +1,7 @@
 import { Button, Container, Nav, Navbar, NavDropdown, DropdownItem } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./header.css"
+import AllCards from "../../pages/allcards/AllCards";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -25,17 +26,15 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link className="text-light" as={Link} to="/">Homepage</Nav.Link>
-                            <Nav.Link className="text-light" as={Link} to="/cards">All Cards</Nav.Link>
+                            <Nav.Link className="text-light" as={Link} to="/allcards">All Cards</Nav.Link>
                             <NavDropdown title="Filter by Rarity" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Common</NavDropdown.Item>
+                                <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.2">
                                     Uncommon
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Rare</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
-                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Rare</NavDropdown.Item>
                             </NavDropdown>
                             {
                                 isAuth && (
