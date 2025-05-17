@@ -4,7 +4,7 @@ import { getAllProducts } from "../../assets/api-call-functions";
 import { useEffect, useState } from "react"
 import { Container, Spinner } from "react-bootstrap";
 
-const AllCards = () => {
+const AllCards = (props) => {
     const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([]);
@@ -25,7 +25,7 @@ const AllCards = () => {
     return (
         <div className="homepage-page">
             {
-                products.map((item, index) => <ProductCard img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
+                products.map((item, index) => <ProductCard addToCart={props.addToCart} key={index} id={item.multiverseid} img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
             }
         </div>
     )

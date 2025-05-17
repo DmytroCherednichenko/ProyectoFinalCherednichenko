@@ -11,22 +11,38 @@ import Cart from './pages/cart/Cart';
 import ProtectedRoute from './components/protectedroute/ProtectedRoute';
 import AdminPanel from './pages/admin/AdminPanel';
 import UserProfile from './pages/userprofile/UserProfile';
+import { useState, useEffect } from 'react';
 
 
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  const removeFromCart = (idToRemove) => {
+    console.log(`Id to remove is ${idToRemove}`);
+    setCartItems(prevCartItems =>
+      prevCartItems.filter(item => item !== idToRemove)
+    );
+  };
+
+  console.log(`Ids of products in app cartItems are ${cartItems}`)
+
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path='/' element={<Homepage />}></Route>
-          <Route path='/allcards' element={<AllCards />}></Route>
-          <Route path='category/:rarity' element={<CategoryPage />}></Route>
+          <Route path='/allcards' element={<AllCards addToCart={addToCart} />}></Route>
+          <Route path='category/:rarity' element={<CategoryPage addToCart={addToCart} />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
           <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
-          <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/cart' element={<Cart cartItems={cartItems} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

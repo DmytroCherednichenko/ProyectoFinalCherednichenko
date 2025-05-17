@@ -21,7 +21,7 @@ const ProductCard = (props) => { //takes img, name
                 <span className="item-price">
                     {getRandomNumber()}
                 </span>
-                <Button variant="dark">
+                <Button variant="dark" onClick={()=>props.addToCart(props.id)}>
                     Add to Cart
                 </Button>
             </div>

@@ -5,7 +5,7 @@ import { getAllProducts } from "../../assets/api-call-functions";
 import ProductCard from "../../components/product/ProductCard";
 import { useParams } from "react-router-dom";
 
-const CategoryPage = () => {
+const CategoryPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [categoryUncommon, setCategoryUncommon] = useState([]);
   const {rarity} = useParams();
@@ -30,7 +30,7 @@ const CategoryPage = () => {
   return (
     <div className="homepage-page">
       {
-        categoryUncommon.map((item, index) => <ProductCard key={index} img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
+        categoryUncommon.map((item, index) => <ProductCard addToCart={props.addToCart} key={index} id={item.multiverseid} img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
       }
     </div>
   )

@@ -15,3 +15,18 @@ export async function getAllProducts() {
         return [];
     }
 }
+
+export async function getSingleProduct(id) {
+    try {
+        const response = await fetch(`${BASE_API_URL}/v1/cards/${id}`);
+        if (!response.ok) {
+            throw new Error("Failed to fetch specified category");
+        }
+        const data = await response.json();
+        return data;
+
+    } catch (e) {
+        console.error(e);
+        return [];
+    }
+}

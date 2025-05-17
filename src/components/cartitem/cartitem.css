@@ -1,0 +1,19 @@
+.cart-item-wrap {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+img.cart-item-image {
+    height: 150px;
+}
+
+.cart-item-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
