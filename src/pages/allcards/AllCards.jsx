@@ -8,13 +8,14 @@ const AllCards = (props) => {
     const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([]);
-    const [categoryUncommon, setCategoryUncommon] = useState([]);
 
     useEffect(() => {
         async function loadProducts() {
             const data = await getAllProducts();
             setProducts(data.cards.filter(item => item.imageUrl));
-            setCategoryUncommon(data.cards.filter(item => item.rarity === "Uncommon"));
+            function getRandomNumber() {
+                return Math.floor(Math.random() * (150 - 15 + 1)) + 15;
+            }
             setLoading(false);
         }
         loadProducts();

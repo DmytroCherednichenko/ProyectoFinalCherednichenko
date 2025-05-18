@@ -23,8 +23,6 @@ const CategoryPage = (props) => {
     loadProducts();
   }, [rarity])
 
-  console.log(rarity)
-
   if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 
   return (

@@ -2,7 +2,6 @@ import "./cartitem.css"
 import { Container, Button } from "react-bootstrap"
 
 const CartItem = (props) => {
-    console.log(`hi it's cart item here. the id I got is ${props.id}`)
     return (
         <Container className="cart-item-wrap">
             <div className="cart-item-image-wrapper">

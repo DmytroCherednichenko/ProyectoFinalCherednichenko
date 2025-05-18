@@ -25,8 +25,6 @@ const Cart = (props) => {
         }
     }, [props.cartItems]);
 
-    console.log(products);
-
     if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 
     return (

@@ -3,11 +3,6 @@ import "./productcard.css"
 
 const ProductCard = (props) => { //takes img, name
 
-    //No tengo prcio en el API entonces lo simulo
-    function getRandomNumber() {
-        return Math.floor(Math.random() * (150 - 15 + 1)) + 15;
-    }
-
     return (
         <Container fluid="sm" className="product-card">
             <div className="card-image-container">
@@ -19,7 +14,7 @@ const ProductCard = (props) => { //takes img, name
             <p className="product-description-type">{props.type}, {props.rarity}</p>
             <div className="price-button-wrap">
                 <span className="item-price">
-                    {getRandomNumber()}
+                    {`${props.id[4]}${props.id[5]}`}
                 </span>
                 <Button variant="dark" onClick={()=>props.addToCart(props.id)}>
                     Add to Cart

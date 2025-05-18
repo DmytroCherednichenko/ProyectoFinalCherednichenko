@@ -1,11 +1,17 @@
 .homepage-page {
     min-height: 75vh;
     min-width: 100vw;
-    padding: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
+    padding: 0px;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 .homepage-loading {

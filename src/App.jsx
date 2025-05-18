@@ -18,8 +18,8 @@ import { useState, useEffect } from 'react';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
+  const addToCart = (productID) => {
+    setCartItems([...cartItems, productID]);
   };
 
   const removeFromCart = (idToRemove) => {
@@ -28,8 +28,6 @@ function App() {
       prevCartItems.filter(item => item !== idToRemove)
     );
   };
-
-  console.log(`Ids of products in app cartItems are ${cartItems}`)
 
   return (
     <>

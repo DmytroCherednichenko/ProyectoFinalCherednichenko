@@ -1,6 +1,7 @@
-import { Container, Spinner } from "react-bootstrap"
+import { Container, Spinner, Carousel } from "react-bootstrap"
 import "./homepage.css"
 import { useState } from "react";
+import CarouselImage from "../../components/carouselimage/CarouselImage";
 
 const Homepage = () => {
     const [loading, setLoading] = useState(false);
@@ -9,10 +10,23 @@ const Homepage = () => {
 
     return (
         <Container className="homepage-page">
-            <div className="hero-wrapper">
-                <img className="hero-image" src="src/assets/hero-image.jpg" alt="" />
-            </div>
-        </Container>
+            <Container fluid className="carousel-wrapper">
+                <Carousel>
+                    <Carousel.Item>
+                        <CarouselImage image="src/assets/car_img_1.jpeg"/>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <CarouselImage image="src/assets/car_img_2.jpeg"/>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <CarouselImage image="src/assets/hero-image.jpg"/>
+                    </Carousel.Item>
+                </Carousel>
+            </Container>
+            <Container className="homepage-main-wrapper">
+
+            </Container>
+        </Container >
     )
 }
 
