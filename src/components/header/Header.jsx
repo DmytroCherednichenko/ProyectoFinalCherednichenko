@@ -25,7 +25,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link className="text-light" as={Link} to="/">Homepage</Nav.Link>
+                            <Nav.Link className="text-light" as={Link} to="/">Home</Nav.Link>
                             <Nav.Link className="text-light" as={Link} to="/allcards">All Cards</Nav.Link>
                             <NavDropdown title="Filter by Rarity" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="category/common">Common</NavDropdown.Item>

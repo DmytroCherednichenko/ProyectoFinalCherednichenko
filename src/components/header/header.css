@@ -1,7 +1,14 @@
-.navbar-wrapper Nav.Link {
-    color: white;
+@font-face {
+    font-family: 'Planewalker';
+    src: url('/fonts/Planewalker-38m6.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-#basic-nav-dropdown {
-    color: #f7f9fa;
+.navbar-wrapper .nav-link,
+#basic-nav-dropdown,
+#basic-nav-dropdown .dropdown-toggle {
+    color: white;
+    font-family: 'Planewalker', sans-serif;
+    font-size: 1.1rem;
 }

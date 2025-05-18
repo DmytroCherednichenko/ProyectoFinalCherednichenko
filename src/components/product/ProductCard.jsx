@@ -1,7 +1,7 @@
 import { Container, Button } from "react-bootstrap"
 import "./productcard.css"
 
-const ProductCard = (props) => { //takes img, name
+const ProductCard = (props) => {
 
     return (
         <Container fluid="sm" className="product-card">

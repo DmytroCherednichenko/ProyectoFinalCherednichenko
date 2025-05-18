@@ -10,6 +10,9 @@ const CartItem = (props) => {
             <div className="cart-item-info-wrapper">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ratione.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ratione.
             </div>
+            <div className="cart-item-quantity">
+                Quantity: <span>{props.quantity}</span>
+            </div>
             <div className="cart-item-button-wrapper">
                 <Button variant="outline-danger" onClick={() => props.removeFromCart(props.id)}>
                     Remove from cart

@@ -8,16 +8,26 @@ const Cart = (props) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         async function loadProducts() {
+            const ids = Object.keys(props.cartItems);
+
             const results = await Promise.all(
-                props.cartItems.map(id => getSingleProduct(id))
+                ids.map(async (id) => {
+                    const product = await getSingleProduct(id);
+                    return {
+                        ...product,
+                        quantity: props.cartItems[id],
+                    };
+                })
             );
+
             setProducts(results);
             setLoading(false);
         }
 
-        if (props.cartItems.length > 0) {
+        if (Object.keys(props.cartItems).length > 0) {
             loadProducts();
         } else {
             setProducts([]);
@@ -29,10 +39,9 @@ const Cart = (props) => {
 
     return (
         <Container className="cart-page">
-            <h1>Your cart</h1>
             <Container className="cart-flex-wrap">
                 {
-                    products.map((item, index) => <CartItem image={item.card.imageUrl} key={index} removeFromCart={props.removeFromCart} id={item.card.multiverseid} ></CartItem>)
+                    products.map((item, index) => <CartItem quantity={item.quantity} image={item.card.imageUrl} key={index} removeFromCart={props.removeFromCart} id={item.card.multiverseid} ></CartItem>)
                 }
             </Container>
         </Container>
