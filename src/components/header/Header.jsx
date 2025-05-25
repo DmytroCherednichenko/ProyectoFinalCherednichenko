@@ -1,5 +1,5 @@
-import { Button, Container, Nav, Navbar, NavDropdown, DropdownItem } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { NavLink, useNavigate, useMatch } from "react-router-dom";
 import "./header.css"
 import AllCards from "../../pages/allcards/AllCards";
 
@@ -12,11 +12,17 @@ const Header = () => {
         navigate("/login");
     };
 
+    const match = useMatch("/category/:rarity");
+
+    const isDropdownActive = Boolean(match);
+
+    console.log(isDropdownActive)
+
     return (
         <div className='header'>
             <Navbar collapseOnSelect expand="lg" className="bg-dark" variant="dark">
                 <Container className="navbar-wrapper">
-                    <Navbar.Brand as={Link} to="/"><img
+                    <Navbar.Brand as={NavLink} to="/" className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'}><img
                         alt=""
                         src="src/assets/mtg-logo.png"
                         width="120px"
@@ -25,35 +31,61 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link className="text-light" as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link className="text-light" as={Link} to="/allcards">All Cards</Nav.Link>
-                            <NavDropdown title="Filter by Rarity" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="category/common">Common</NavDropdown.Item>
+                            <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`}>
+                                Home
+                            </NavLink>
+                            <NavLink to="/allcards" className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`}>
+                                All Cards
+                            </NavLink>
+                            <NavDropdown
+                                id="basic-nav-dropdown"
+                                className={`rarity-dropdown ${isDropdownActive ? 'text-warning fw-bold' : 'text-light'}`}
+                                title={
+                                    <span className={isDropdownActive ? 'text-warning fw-bold' : 'text-light'}>
+                                        Filter by Rarity
+                                    </span>
+                                }
+                            >
+                                <NavDropdown.Item as="div">
+                                    <NavLink to="category/common" className={({ isActive }) => `dropdown-item ${isActive ? 'fw-bold' : 'text-dark'}`}>
+                                        Common
+                                    </NavLink>
+                                </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to="category/uncommon">Uncommon</NavDropdown.Item>
+                                <NavDropdown.Item as="div">
+                                    <NavLink to="category/uncommon" className={({ isActive }) => `dropdown-item ${isActive ? 'fw-bold' : 'text-dark'}`}>
+                                        Uncommon
+                                    </NavLink>
+                                </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to="category/rare">Rare</NavDropdown.Item>
+                                <NavDropdown.Item as="div">
+                                    <NavLink to="category/rare" className={({ isActive }) => `dropdown-item ${isActive ? 'fw-bold' : 'text-dark'}`}>
+                                        Rare
+                                    </NavLink>
+                                </NavDropdown.Item>
                             </NavDropdown>
                             {
                                 isAuth && (
                                     <>
-                                        <Nav.Link className="text-light" as={Link} to="profile/bart_simpson">Account</Nav.Link>
-                                        <Nav.Link className="text-light" as={Link} to="/admin">Admin</Nav.Link>
+                                        <Nav.Link className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'} as={NavLink} to="profile/bart_simpson">Account</Nav.Link>
+                                        <Nav.Link className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'} as={NavLink} to="/admin">Admin</Nav.Link>
                                     </>
                                 )
                             }
                         </Nav>
                         <Nav>
                             {
-                                !isAuth ? (<Nav.Link className="text-light" as={Link} to="/login">Login</Nav.Link>)
+                                !isAuth ? (<NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="/login">Login</NavLink>)
                                     : (<Button variant="outline-light" onClick={() => cerrarSession()}>Logout</Button>)
                             }
-                            <Nav.Link className="text-light" as={Link} to="/cart"><i className="bi bi-cart"></i></Nav.Link>
+                            <NavLink to="/cart" className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`}>
+                                <i className="bi bi-cart"></i>
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </div >
     )
 }
 

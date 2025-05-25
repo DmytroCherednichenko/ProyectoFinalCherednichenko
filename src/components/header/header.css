@@ -12,3 +12,11 @@
     font-family: 'Planewalker', sans-serif;
     font-size: 1.1rem;
 }
+
+.rarity-dropdown .dropdown-toggle::after {
+    border-top-color: currentColor;
+}
+
+.rarity-dropdown.text-warning .dropdown-toggle::after {
+    border-top-color: #ffc107;
+}
