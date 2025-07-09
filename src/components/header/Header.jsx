@@ -5,7 +5,7 @@ import AllCards from "../../pages/allcards/AllCards";
 
 const Header = () => {
     const navigate = useNavigate();
-    const isAuth = localStorage.getItem("auth") === "true";
+    const isAuth = localStorage.getItem("authToken");
 
     const cerrarSession = () => {
         localStorage.removeItem("auth");

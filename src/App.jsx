@@ -14,6 +14,7 @@ import UserProfile from './pages/userprofile/UserProfile';
 import { useState, useEffect } from 'react';
 import ProductDetails from './pages/product-details/ProductDetails';
 import { CartProvider } from './Context/CartContext';
+import { AuthProvider } from './Context/AuthContext';
 
 
 
@@ -48,20 +49,22 @@ function App() {
   return (
     <>
       <CartProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Homepage />}></Route>
-            <Route path='/allcards' element={<AllCards />}></Route>
-            <Route path='category/:rarity' element={<CategoryPage />}></Route>
-            <Route path='item/:id' element={<ProductDetails />}></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
-            <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
-            <Route path='/cart' element={<Cart cartItems={cartItems} />}></Route>
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <AuthProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Homepage />}></Route>
+              <Route path='/allcards' element={<AllCards />}></Route>
+              <Route path='category/:rarity' element={<CategoryPage />}></Route>
+              <Route path='item/:id' element={<ProductDetails />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
+              <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
+              <Route path='/cart' element={<Cart cartItems={cartItems} />}></Route>
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </AuthProvider>
       </CartProvider>
     </>
   )
