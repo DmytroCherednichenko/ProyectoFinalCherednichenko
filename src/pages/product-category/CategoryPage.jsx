@@ -1,14 +1,16 @@
 import "./categorypage.css"
 import { Container, Spinner } from "react-bootstrap"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getAllProducts } from "../../assets/api-call-functions";
 import ProductCard from "../../components/product/ProductCard";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 
 const CategoryPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [categoryUncommon, setCategoryUncommon] = useState([]);
   const {rarity} = useParams();
+  const {addToCart} = useContext(CartContext);
 
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -28,7 +30,7 @@ const CategoryPage = (props) => {
   return (
     <div className="homepage-page">
       {
-        categoryUncommon.map((item, index) => <ProductCard addToCart={props.addToCart} key={index} id={item.multiverseid} img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
+        categoryUncommon.map((item, index) => <ProductCard key={index} entireproduct={item}></ProductCard>)
       }
     </div>
   )

@@ -1,0 +1,31 @@
+.product-details-container {
+    min-height: 100vh;
+}
+
+.main-product-details-wrap {
+    display: flex;
+}
+
+.product-details-image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pd-img-wrap-center {
+    padding: 30px;
+
+}
+
+.pd-card-image {
+    min-width: 300px;
+    border: 9px solid black;
+    border-radius: 5px;
+
+}
+
+@media (max-width: 990px) {
+    .main-product-details-wrap {
+        flex-direction: column;
+    }
+}

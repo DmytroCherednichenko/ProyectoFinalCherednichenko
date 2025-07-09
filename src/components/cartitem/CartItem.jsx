@@ -14,7 +14,7 @@ const CartItem = (props) => {
                 Quantity: <span>{props.quantity}</span>
             </div>
             <div className="cart-item-button-wrapper">
-                <Button variant="outline-danger" onClick={() => props.removeFromCart(props.id)}>
+                <Button variant="outline-danger">
                     Remove from cart
                 </Button>
             </div>

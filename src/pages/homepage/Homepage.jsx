@@ -13,13 +13,13 @@ const Homepage = () => {
             <Container fluid className="carousel-wrapper">
                 <Carousel>
                     <Carousel.Item>
-                        <CarouselImage image="src/assets/car_img_1.jpeg"/>
+                        <CarouselImage image="src/assets/hero-image.jpg"/>
                     </Carousel.Item>
                     <Carousel.Item>
                         <CarouselImage image="src/assets/car_img_2.jpeg"/>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <CarouselImage image="src/assets/hero-image.jpg"/>
+                        <CarouselImage image="src/assets/car_img_1.jpeg"/>
                     </Carousel.Item>
                 </Carousel>
             </Container>

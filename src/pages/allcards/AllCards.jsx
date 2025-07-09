@@ -6,16 +6,13 @@ import { Container, Spinner } from "react-bootstrap";
 
 const AllCards = (props) => {
     const [loading, setLoading] = useState(true);
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         async function loadProducts() {
             const data = await getAllProducts();
             setProducts(data.cards.filter(item => item.imageUrl));
-            function getRandomNumber() {
-                return Math.floor(Math.random() * (150 - 15 + 1)) + 15;
-            }
+
             setLoading(false);
         }
         loadProducts();
@@ -26,7 +23,7 @@ const AllCards = (props) => {
     return (
         <div className="homepage-page">
             {
-                products.map((item, index) => <ProductCard addToCart={props.addToCart} key={index} id={item.multiverseid} img={item.imageUrl} name={item.name} rarity={item.rarity} type={item.type}></ProductCard>)
+                products.map((item, index) => <ProductCard key={index} entireproduct={item}></ProductCard>)
             }
         </div>
     )

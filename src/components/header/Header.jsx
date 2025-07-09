@@ -16,8 +16,6 @@ const Header = () => {
 
     const isDropdownActive = Boolean(match);
 
-    console.log(isDropdownActive)
-
     return (
         <div className='header'>
             <Navbar collapseOnSelect expand="lg" className="bg-dark" variant="dark">
