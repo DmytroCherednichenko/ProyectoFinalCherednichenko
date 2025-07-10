@@ -7,9 +7,18 @@ export async function getAllProducts() {
         if (!response.ok) {
             throw new Error("failed to fetch the products");
         }
-        const data = await response.json();
-        return data;
 
+        const data = await response.json();
+
+        // Measure JSON size
+        const jsonString = JSON.stringify(data);
+        const byteLength = new TextEncoder().encode(jsonString).length;
+        const kb = (byteLength / 1024).toFixed(2);
+        const mb = (byteLength / 1024 / 1024).toFixed(4);
+
+        console.log(`Fetched JSON size: ${byteLength} bytes (${kb} KB, ${mb} MB)`);
+
+        return data;
     } catch (error) {
         console.error(error);
         return [];

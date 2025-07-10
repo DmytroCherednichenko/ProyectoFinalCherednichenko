@@ -19,32 +19,6 @@ import { AuthProvider } from './Context/AuthContext';
 
 
 function App() {
-  const [cartItems, setCartItems] = useState({});
-
-  const addToCart = (productID) => {
-    setCartItems((prevCartItems) => ({
-      ...prevCartItems,
-      [productID]: (prevCartItems[productID] || 0) + 1,
-    }));
-  };
-
-  const removeFromCart = (idToRemove) => {
-    setCartItems((prevCartItems) => {
-      const currentQuantity = prevCartItems[idToRemove];
-
-      if (!currentQuantity) return prevCartItems;
-
-      const updatedCart = { ...prevCartItems };
-
-      if (currentQuantity === 1) {
-        delete updatedCart[idToRemove];
-      } else {
-        updatedCart[idToRemove] = currentQuantity - 1;
-      }
-
-      return updatedCart;
-    });
-  };
 
   return (
     <>
@@ -60,7 +34,7 @@ function App() {
               <Route path='/login' element={<Login />}></Route>
               <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
               <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
-              <Route path='/cart' element={<Cart cartItems={cartItems} />}></Route>
+              <Route path='/cart' element={<Cart />}></Route>
             </Routes>
             <Footer />
           </BrowserRouter>

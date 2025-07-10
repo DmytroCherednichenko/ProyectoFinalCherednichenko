@@ -6,36 +6,8 @@ import CartItem from "../../components/cartitem/CartItem"
 import { CartContext } from "../../Context/CartContext"
 
 const Cart = (props) => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const { cart, addToCart, emptyCart } = useContext(CartContext);
-
-
-    useEffect(() => {
-        async function loadProducts() {
-            const ids = Object.keys(props.cartItems);
-
-            const results = await Promise.all(
-                ids.map(async (id) => {
-                    const product = await getSingleProduct(id);
-                    return {
-                        ...product,
-                        quantity: props.cartItems[id],
-                    };
-                })
-            );
-
-            setProducts(results);
-            setLoading(false);
-        }
-
-        if (Object.keys(props.cartItems).length > 0) {
-            loadProducts();
-        } else {
-            setProducts([]);
-            setLoading(false);
-        }
-    }, [props.cartItems]);
+    const [loading, setLoading] = useState(false);
+    const { cart, emptyCart } = useContext(CartContext);
 
     if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 

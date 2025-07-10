@@ -8,7 +8,7 @@ const Header = () => {
     const isAuth = localStorage.getItem("authToken");
 
     const cerrarSession = () => {
-        localStorage.removeItem("auth");
+        localStorage.removeItem("authToken");
         navigate("/login");
     };
 
