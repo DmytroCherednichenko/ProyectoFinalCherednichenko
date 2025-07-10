@@ -15,6 +15,8 @@ import { useState, useEffect } from 'react';
 import ProductDetails from './pages/product-details/ProductDetails';
 import { CartProvider } from './Context/CartContext';
 import { AuthProvider } from './Context/AuthContext';
+import { ProductsProvider } from './Context/ProductsContext';
+
 
 
 
@@ -22,24 +24,27 @@ function App() {
 
   return (
     <>
-      <CartProvider>
-        <AuthProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path='/' element={<Homepage />}></Route>
-              <Route path='/allcards' element={<AllCards />}></Route>
-              <Route path='category/:rarity' element={<CategoryPage />}></Route>
-              <Route path='item/:id' element={<ProductDetails />}></Route>
-              <Route path='/login' element={<Login />}></Route>
-              <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
-              <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
-              <Route path='/cart' element={<Cart />}></Route>
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </AuthProvider>
-      </CartProvider>
+      <ProductsProvider>
+        <CartProvider>
+          <AuthProvider>
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route path='/' element={<Homepage />}></Route>
+                <Route path='/allcards' element={<AllCards />}></Route>
+                <Route path='category/:rarity' element={<CategoryPage />}></Route>
+                <Route path='item/:id' element={<ProductDetails />}></Route>
+                <Route path='/login' element={<Login />}></Route>
+                <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
+                <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
+                <Route path='/cart' element={<Cart />}></Route>
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </AuthProvider>
+        </CartProvider>
+      </ProductsProvider>
+
     </>
   )
 }

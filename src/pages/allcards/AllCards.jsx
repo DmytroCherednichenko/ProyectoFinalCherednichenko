@@ -1,22 +1,12 @@
 import "./allcards.css"
 import ProductCard from "../../components/product/ProductCard";
 import { getAllProducts } from "../../assets/api-call-functions";
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Container, Spinner } from "react-bootstrap";
+import { ProductsContext } from "../../Context/ProductsContext";
 
 const AllCards = (props) => {
-    const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        async function loadProducts() {
-            const data = await getAllProducts();
-            setProducts(data.cards.filter(item => item.imageUrl));
-
-            setLoading(false);
-        }
-        loadProducts();
-    }, [])
+    const { products, loading } = useContext(ProductsContext);
 
     if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 

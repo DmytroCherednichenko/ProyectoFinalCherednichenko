@@ -65,8 +65,8 @@ const Header = () => {
                             {
                                 isAuth && (
                                     <>
-                                        <Nav.Link className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'} as={NavLink} to="profile/bart_simpson">Account</Nav.Link>
-                                        <Nav.Link className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'} as={NavLink} to="/admin">Admin</Nav.Link>
+                                        <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="profile/bart_simpson">Account</NavLink>
+                                        <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="/admin">Admin</NavLink>
                                     </>
                                 )
                             }
