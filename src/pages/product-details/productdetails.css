@@ -18,9 +18,7 @@
 }
 
 .pd-card-image {
-    min-width: 300px;
-    border: 9px solid black;
-    border-radius: 5px;
+    min-width: 100px;
 
 }
 

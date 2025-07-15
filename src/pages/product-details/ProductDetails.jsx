@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Container, Spinner } from 'react-bootstrap'
 import { getSingleProduct } from '../../assets/api-call-functions'
 import { useParams } from 'react-router-dom';
 import './productdetails.css'
+import { CartContext } from '../../Context/CartContext';
+
 
 function ProductDetails(props) {
 

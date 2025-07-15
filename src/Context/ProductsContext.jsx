@@ -9,20 +9,61 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
+    const [productToEdit, setProductToEdit] = useState(null);
+    const [counterId, setCounterId] = useState(1);
     const [loading, setLoading] = useState(true);
+
+    // setCounterId(products.length+1);
+
+    const addProduct = (product) => {
+        const newProduct = { ...product, id: products.length+1 };
+        setProducts([...products, newProduct]);
+        setCounterId(counterId + 1);
+    };
+
+    const updateProduct = (updatedProduct) => {
+        setProducts(prev =>
+            prev.map(product =>
+                product.id === updatedProduct.id ? updatedProduct : product
+            )
+        );
+    };
+
+    const deleteProduct = (id) => {
+        setProducts(prev => prev.filter(product => product.id !== id));
+    };
+
+    const editProduct = (product) => {
+        setProductToEdit(product);
+    };
+
 
 
     useEffect(() => {
         async function loadProducts() {
             const data = await getAllProducts();
-            setProducts(data.cards.filter(item => item.imageUrl));
+            const filtered = data.cards
+                .filter(item => item.imageUrl && item.multiverseid?.[4] && item.multiverseid[4] !== "0");
+
+
+            const pricedProducts = filtered.map((product, index) => ({
+                ...product,
+                price: `${product.multiverseid[4] || ''}${product.multiverseid[5] || ''}`,
+                id: index + 1,
+            }));
+
+            setProducts(pricedProducts);
             setLoading(false);
         }
         loadProducts();
-    }, [])
+    }, []);
 
     return (
-        <ProductsContext.Provider value={{ products }}>
+        <ProductsContext.Provider value={{
+            products, setProducts,
+            addProduct, updateProduct,
+            productToEdit, setProductToEdit
+        }}>
             {children}
         </ProductsContext.Provider>
     );
