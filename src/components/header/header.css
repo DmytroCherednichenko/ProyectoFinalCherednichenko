@@ -20,3 +20,21 @@
 .rarity-dropdown.text-warning .dropdown-toggle::after {
     border-top-color: #ffc107;
 }
+
+.logout-button {
+    all: unset;
+    color: white;
+    font-family: 'Planewalker', sans-serif;
+    font-size: 1.1rem;
+    margin: 0px 10px;
+}
+
+.logout-button:hover {
+    all: unset;
+    color: #ffc107;
+    font-family: 'Planewalker', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0px 10px;
+
+}

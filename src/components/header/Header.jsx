@@ -1,16 +1,14 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { NavLink, useNavigate, useMatch } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
 import "./header.css"
 import AllCards from "../../pages/allcards/AllCards";
+import { AuthContext } from "../../Context/AuthContext";
+import { useContext } from "react";
 
 const Header = () => {
-    const navigate = useNavigate();
     const isAuth = localStorage.getItem("authToken");
 
-    const cerrarSession = () => {
-        localStorage.removeItem("authToken");
-        navigate("/login");
-    };
+    const { logout } = useContext(AuthContext);
 
     const match = useMatch("/category/:rarity");
 
@@ -65,7 +63,6 @@ const Header = () => {
                             {
                                 isAuth && (
                                     <>
-                                        <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="profile/bart_simpson">Account</NavLink>
                                         <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="/admin">Admin</NavLink>
                                     </>
                                 )
@@ -74,10 +71,15 @@ const Header = () => {
                         <Nav>
                             {
                                 !isAuth ? (<NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="/login">Login</NavLink>)
-                                    : (<Button variant="outline-light" onClick={() => cerrarSession()}>Logout</Button>)
+                                    : (<Button className="logout-button" onClick={() => logout()}>Logout</Button>)
+                            }
+                            {
+                                isAuth && (
+                                    <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="profile/bart_simpson">My Profile</NavLink>
+                                )
                             }
                             <NavLink to="/cart" className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`}>
-                                <i className="bi bi-cart"></i>
+                                My Cart
                             </NavLink>
                         </Nav>
                     </Navbar.Collapse>

@@ -24,10 +24,10 @@ function App() {
 
   return (
     <>
-      <ProductsProvider>
-        <CartProvider>
-          <AuthProvider>
-            <BrowserRouter>
+      <BrowserRouter>
+        <ProductsProvider>
+          <CartProvider>
+            <AuthProvider>
               <Header />
               <Routes>
                 <Route path='/' element={<Homepage />}></Route>
@@ -40,10 +40,10 @@ function App() {
                 <Route path='/cart' element={<Cart />}></Route>
               </Routes>
               <Footer />
-            </BrowserRouter>
-          </AuthProvider>
-        </CartProvider>
-      </ProductsProvider>
+            </AuthProvider>
+          </CartProvider>
+        </ProductsProvider>
+      </BrowserRouter>
 
     </>
   )

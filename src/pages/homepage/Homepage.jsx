@@ -24,7 +24,6 @@ const Homepage = () => {
                 </Carousel>
             </Container>
             <Container className="homepage-main-wrapper">
-
             </Container>
         </Container >
     )
