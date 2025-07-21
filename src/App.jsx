@@ -20,6 +20,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Subheader from './components/subheader/subheader';
 import SearchedProducts from './pages/search-products/SearchProducts';
+import { HelmetProvider } from 'react-helmet-async';
+
 
 
 
@@ -27,29 +29,32 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
-      <BrowserRouter>
-        <ProductsProvider>
-          <CartProvider>
-            <AuthProvider>
-              <Header />
-              <Subheader></Subheader>
-              <Routes>
-                <Route path='/' element={<Homepage />}></Route>
-                <Route path='/allcards' element={<AllCards />}></Route>
-                <Route path='category/:rarity' element={<CategoryPage />}></Route>
-                <Route path='item/:id' element={<ProductDetails />}></Route>
-                <Route path='/login' element={<Login />}></Route>
-                <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
-                <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
-                <Route path='/cart' element={<Cart />}></Route>
-                <Route path="/search/:userInput" element={<SearchedProducts />} />
-              </Routes>
-              <Footer />
-            </AuthProvider>
-          </CartProvider>
-        </ProductsProvider>
-      </BrowserRouter>
+      <HelmetProvider>
+        <ToastContainer />
+        <BrowserRouter>
+          <ProductsProvider>
+            <CartProvider>
+              <AuthProvider>
+                <Header />
+                <Subheader></Subheader>
+                <Routes>
+                  <Route path='/' element={<Homepage />}></Route>
+                  <Route path='/allcards' element={<AllCards />}></Route>
+                  <Route path='category/:rarity' element={<CategoryPage />}></Route>
+                  <Route path='item/:id' element={<ProductDetails />}></Route>
+                  <Route path='/login' element={<Login />}></Route>
+                  <Route path='/admin' element={<ProtectedRoute><AdminPanel /></ProtectedRoute>}></Route>
+                  <Route path='profile/:username' element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route>
+                  <Route path='/cart' element={<Cart />}></Route>
+                  <Route path="/search/:userInput" element={<SearchedProducts />} />
+                </Routes>
+                <Footer />
+              </AuthProvider>
+            </CartProvider>
+          </ProductsProvider>
+        </BrowserRouter>
+      </HelmetProvider>
+
 
     </>
   )

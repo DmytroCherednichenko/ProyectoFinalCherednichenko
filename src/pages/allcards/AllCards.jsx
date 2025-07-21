@@ -3,6 +3,8 @@ import ProductCard from "../../components/product/ProductCard";
 import { useState, useContext } from "react"
 import { Container, Spinner, Pagination } from "react-bootstrap";
 import { ProductsContext } from "../../Context/ProductsContext";
+import { Helmet } from 'react-helmet-async';
+
 
 const AllCards = () => {
     const { products, loading, error } = useContext(ProductsContext);
@@ -28,26 +30,34 @@ const AllCards = () => {
         );
     }
     return (
-        <div className="allcards-container">
-            <div className="homepage-page">
-                {currentProducts.map((item, index) => (
-                    <ProductCard key={index} entireproduct={item} />
-                ))}
-            </div>
-            <div className="pagination-wrapper">
-                <Pagination className="justify-content-center pagination-dark">
-                    {[...Array(totalPages)].map((_, idx) => (
-                        <Pagination.Item
-                            key={idx + 1}
-                            active={idx + 1 === currentPage}
-                            onClick={() => handlePageChange(idx + 1)}
-                        >
-                            {idx + 1}
-                        </Pagination.Item>
+        <>
+            <Helmet>
+                <title>All Magic Cards | MTG Project</title>
+                <meta name="description" content="Browse all Magic: The Gathering cards in our collection." />
+            </Helmet>
+
+            <div className="allcards-container">
+                <div className="homepage-page">
+                    {currentProducts.map((item, index) => (
+                        <ProductCard key={index} entireproduct={item} />
                     ))}
-                </Pagination>
+                </div>
+                <div className="pagination-wrapper">
+                    <Pagination className="justify-content-center pagination-dark">
+                        {[...Array(totalPages)].map((_, idx) => (
+                            <Pagination.Item
+                                key={idx + 1}
+                                active={idx + 1 === currentPage}
+                                onClick={() => handlePageChange(idx + 1)}
+                            >
+                                {idx + 1}
+                            </Pagination.Item>
+                        ))}
+                    </Pagination>
+                </div>
             </div>
-        </div>
+        </>
+
     );
 }
 
