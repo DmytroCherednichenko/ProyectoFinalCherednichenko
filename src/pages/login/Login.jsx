@@ -3,6 +3,7 @@ import { Container, Button, Form } from "react-bootstrap";
 import "./login.css"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Login = () => {
             login(user);
             navigate('/admin');
         } else {
-            alert('Credenciales incorrectas');
+            toast.error('Wrong login or password');
         }
     };
 

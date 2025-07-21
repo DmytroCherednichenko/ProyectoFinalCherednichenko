@@ -1,16 +1,13 @@
 import "./categorypage.css"
 import { Container, Spinner } from "react-bootstrap"
-import { useState, useEffect, useContext } from "react";
-import { getAllProducts } from "../../assets/api-call-functions";
+import { useContext } from "react";
 import ProductCard from "../../components/product/ProductCard";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../Context/CartContext";
 import { ProductsContext } from "../../Context/ProductsContext";
 
 const CategoryPage = () => {
   const { rarity } = useParams();
-  const { addToCart } = useContext(CartContext);
-  const { products, loading } = useContext(ProductsContext);
+  const { products, loading, error } = useContext(ProductsContext);
 
 
   function capitalizeFirstLetter(str) {
@@ -23,6 +20,13 @@ const CategoryPage = () => {
 
   if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 
+  if (!loading && error) {
+    return (
+      <Container className="homepage-loading text-center py-5">
+        <h4>{error}</h4>
+      </Container>
+    );
+  }
   return (
     <div className="homepage-page">
       {

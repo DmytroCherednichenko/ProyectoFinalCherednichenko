@@ -1,0 +1,32 @@
+.subheader-strip {
+    background-color: #bdbcb5;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.subheader-search {
+    width: 100%;
+    max-width: 360px;
+    padding: 10px 14px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.subheader-search:focus {
+    border-color: #888;
+    box-shadow: 0 0 0 3px rgba(100, 100, 100, 0.1);
+}
+
+.search-btn {
+    margin: 0px 12px;
+    border-radius: 24px;
+
+}

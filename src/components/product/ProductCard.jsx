@@ -3,10 +3,17 @@ import "./productcard.css"
 import { useNavigate } from "react-router-dom"
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+
 
 const ProductCard = (props) => {
     const { addToCart } = useContext(CartContext);
     const navigate = useNavigate();
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        toast.success(`"${product.name}" added to cart successfully!`);
+    };
 
     return (
         <Container fluid="sm" className="product-card">
@@ -26,7 +33,7 @@ const ProductCard = (props) => {
                 <span className="item-price">
                     {props.entireproduct.price}
                 </span>
-                <Button variant="dark" onClick={() => addToCart(props.entireproduct)}>
+                <Button variant="dark" onClick={() => handleAddToCart(props.entireproduct)}>
                     Add to Cart
                 </Button>
             </div>

@@ -62,12 +62,22 @@ function ManageProducts() {
             toughness: "3",
             setName: "Lorem",
             number: "1",
-            legalities: ["Artisan"],
+            legalities: [{ format: 'Custom', legality: 'Legal' }],
             imageUrl: "src/assets/Magic_card_back.jpg",
         };
 
         if (productToEdit) {
             product.id = productToEdit.id;
+            product.manaCost = productToEdit.manaCost;
+            product.type = productToEdit.type;
+            product.rarity = productToEdit.rarity;
+            product.flavor = productToEdit.flavor;
+            product.artist = productToEdit.artist;
+            product.power = productToEdit.power;
+            product.toughness = productToEdit.toughness;
+            product.setName = productToEdit.setName;
+            product.imageUrl = productToEdit.imageUrl;
+            product.legalities = productToEdit.legalities;
         }
 
         onSubmit(product);

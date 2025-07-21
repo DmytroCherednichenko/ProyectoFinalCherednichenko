@@ -1,9 +1,9 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { NavLink, useMatch } from "react-router-dom";
 import "./header.css"
-import AllCards from "../../pages/allcards/AllCards";
 import { AuthContext } from "../../Context/AuthContext";
 import { useContext } from "react";
+import logo from "../../assets/mtg-logo.png"
 
 const Header = () => {
     const isAuth = localStorage.getItem("authToken");
@@ -20,7 +20,7 @@ const Header = () => {
                 <Container className="navbar-wrapper">
                     <Navbar.Brand as={NavLink} to="/" className={({ isActive }) => isActive ? 'text-warning fw-bold' : 'text-light'}><img
                         alt=""
-                        src="src/assets/mtg-logo.png"
+                        src={logo}
                         width="120px"
                         className="d-inline-block align-top"
                     /></Navbar.Brand>
@@ -75,7 +75,7 @@ const Header = () => {
                             }
                             {
                                 isAuth && (
-                                    <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="profile/bart_simpson">My Profile</NavLink>
+                                    <NavLink className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`} to="profile/Bender_Rodriguez">My Profile</NavLink>
                                 )
                             }
                             <NavLink to="/cart" className={({ isActive }) => `nav-link ${isActive ? 'text-warning fw-bold' : 'text-light'}`}>

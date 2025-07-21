@@ -24,7 +24,7 @@ function TopSellers() {
         <Container fluid className='top-sellers-main-wrap'>
             <h4 className="homepage-h4">Top Sellers</h4>
             <div className='top-sellers-scroll-wrapper'>
-                <button className='scroll-btn left' onClick={() => scroll('left')}><i class="bi bi-caret-left-fill"></i></button>
+                <button className='scroll-btn left' onClick={() => scroll('left')}><i className="bi bi-caret-left-fill"></i></button>
 
                 <div className='top-sellers-gallery' ref={galleryRef}>
                     {topSellers.map(product => (
@@ -35,7 +35,7 @@ function TopSellers() {
                     ))}
                 </div>
 
-                <button className='scroll-btn right' onClick={() => scroll('right')}><i class="bi bi-caret-right-fill"></i></button>
+                <button className='scroll-btn right' onClick={() => scroll('right')}><i className="bi bi-caret-right-fill"></i></button>
             </div>
         </Container>
     )

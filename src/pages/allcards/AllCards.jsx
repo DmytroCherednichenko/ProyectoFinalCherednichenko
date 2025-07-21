@@ -5,7 +5,7 @@ import { Container, Spinner, Pagination } from "react-bootstrap";
 import { ProductsContext } from "../../Context/ProductsContext";
 
 const AllCards = () => {
-    const { products, loading } = useContext(ProductsContext);
+    const { products, loading, error } = useContext(ProductsContext);
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 12;
     const indexOfLastProduct = currentPage * productsPerPage;
@@ -20,6 +20,13 @@ const AllCards = () => {
 
     if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
 
+    if (!loading && error) {
+        return (
+            <Container className="homepage-loading text-center py-5">
+                <h4>{error}</h4>
+            </Container>
+        );
+    }
     return (
         <div className="allcards-container">
             <div className="homepage-page">

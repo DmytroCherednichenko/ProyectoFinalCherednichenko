@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Container, Spinner } from 'react-bootstrap'
 import { getSingleProduct } from '../../assets/api-call-functions'
 import { useParams } from 'react-router-dom';
 import './productdetails.css'
-import { CartContext } from '../../Context/CartContext';
 import { ProductsContext } from '../../Context/ProductsContext';
+
 
 
 function ProductDetails(props) {
@@ -16,9 +16,7 @@ function ProductDetails(props) {
 
   const [loading, setLoading] = useState(true);
 
-  const { addToCart } = useContext(CartContext);
-
-  const { updateProduct, addProduct, deleteProduct, editProduct, productToEdit, setProductToEdit, products } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
 
 
   useEffect(() => {
@@ -84,11 +82,11 @@ function ProductDetails(props) {
         <hr />
         <div className="product-details-info-wrap">
           <div className="pd-card-data-header">
-            <i class="bi bi-book"> Card Name</i>
+            <i className="bi bi-book"> Card Name</i>
             <p>{product.name}</p>
           </div>
           <div className="pd-card-data-header">
-            <i class="bi bi-flower3"> Mana Cost</i>
+            <i className="bi bi-flower3"> Mana Cost</i>
             <p>{product.manaCost}</p>
           </div>
           <div className="pd-card-data-header">
@@ -97,7 +95,7 @@ function ProductDetails(props) {
               <p>{product.type}</p>
             </div>
             <div className="pd-card-data-header">
-              <i class="bi bi-diamond"> Rarity</i>
+              <i className="bi bi-diamond"> Rarity</i>
               <p>{product.rarity}</p>
             </div>
           </div>
@@ -105,7 +103,7 @@ function ProductDetails(props) {
           <hr />
 
           <div className="pd-card-data-header">
-            <i class="bi bi-lightning-charge-fill"> Rules Text</i>
+            <i className="bi bi-lightning-charge-fill"> Rules Text</i>
             <p>{product.originalText}</p>
           </div>
           {product.flavor && (
@@ -119,7 +117,7 @@ function ProductDetails(props) {
 
           <div className="pd-card-data-header">
             <div className="pd-card-artist-wrap">
-              <i class="bi bi-brush"> Artist</i>
+              <i className="bi bi-brush"> Artist</i>
               <p>{product.artist}</p>
             </div>
             {product.power && (
@@ -132,22 +130,22 @@ function ProductDetails(props) {
 
           <div className="pd-card-data-header">
             <div className="pd-card-set-wrap">
-              <i class="bi bi-box"> Set</i>
+              <i className="bi bi-box"> Set</i>
               <p>{product.setName}</p>
             </div>
             <div className="pd-card-number-wrap">
-              <i class="bi bi-123"> Number</i>
+              <i className="bi bi-123"> Number</i>
               <p>{product.number}</p>
             </div>
           </div>
 
           <div className="pd-card-data-header">
-            <i class="bi bi-check-circle"> Legal formats</i>
+            <i className="bi bi-check-circle"> Legal formats</i>
             <p>{legalFormatNames.map((item) => <span>{`${item} `}</span>)}</p>
           </div>
 
           <div className="pd-card-data-header">
-            <i class="bi bi-x-circle"> Not legal formats</i>
+            <i className="bi bi-x-circle"> Not legal formats</i>
             <p>{nonLegalFormats.map((item) => <span>{`${item} `}</span>)}</p>
           </div>
 

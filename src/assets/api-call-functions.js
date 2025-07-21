@@ -10,7 +10,6 @@ export async function getAllProducts() {
 
         const data = await response.json();
 
-        // Measure JSON size
         const jsonString = JSON.stringify(data);
         const byteLength = new TextEncoder().encode(jsonString).length;
         const kb = (byteLength / 1024).toFixed(2);
