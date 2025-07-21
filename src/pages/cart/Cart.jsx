@@ -1,7 +1,6 @@
 import { Button, Container, Spinner } from "react-bootstrap"
 import "./cart.css"
-import { useState, useEffect, useContext } from "react"
-import { getSingleProduct } from "../../assets/api-call-functions"
+import { useContext } from "react"
 import CartItem from "../../components/cartitem/CartItem"
 import { CartContext } from "../../Context/CartContext"
 import { Link } from 'react-router-dom';

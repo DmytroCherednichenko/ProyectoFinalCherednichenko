@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
+import { useState } from 'react';
 import './subheader.css';
 import { Button, Form } from 'react-bootstrap';
-import { ProductsContext } from '../../Context/ProductsContext';
 import { useNavigate } from 'react-router-dom';
 
 

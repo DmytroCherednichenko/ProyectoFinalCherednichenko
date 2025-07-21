@@ -1,4 +1,3 @@
-import React from 'react'
 import { Table, Button, Container, Modal } from 'react-bootstrap';
 import { useContext } from "react";
 import { ProductsContext } from "../../Context/ProductsContext";

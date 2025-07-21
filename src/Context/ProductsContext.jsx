@@ -69,7 +69,7 @@ export const ProductsProvider = ({ children }) => {
             products, setProducts,
             addProduct, updateProduct,
             productToEdit, setProductToEdit,
-            editProduct, deleteProduct, error,
+            editProduct, deleteProduct, error, loading,
         }}>
             {children}
         </ProductsContext.Provider>

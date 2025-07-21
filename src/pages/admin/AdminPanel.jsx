@@ -3,7 +3,7 @@ import "./adminpanel.css"
 import ManageProducts from "../../components/manageproducts/ManageProducts"
 import ProductList from "../../components/productlist/ProductList"
 
-const AdminPanel = (props) => {
+const AdminPanel = () => {
 
     return (
         <Container className="admin-panel">
