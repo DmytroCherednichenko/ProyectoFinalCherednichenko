@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
 import { ProductsContext } from "../../Context/ProductsContext";
 
-const CategoryPage = (props) => {
+const CategoryPage = () => {
   const { rarity } = useParams();
   const { addToCart } = useContext(CartContext);
   const { products, loading } = useContext(ProductsContext);

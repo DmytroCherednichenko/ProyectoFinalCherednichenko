@@ -1,0 +1,15 @@
+.pagination-dark .page-link {
+    background-color: #343a40; /* Bootstrap dark */
+    color: #fff;
+    border-color: #343a40;
+}
+
+.pagination-dark .page-link:hover {
+    background-color: #495057;
+    color: #fff;
+}
+
+.pagination-dark .active .page-link {
+    background-color: #212529;
+    border-color: #212529;
+}

@@ -10,8 +10,13 @@ const ProductCard = (props) => {
 
     return (
         <Container fluid="sm" className="product-card">
-            <div className="card-image-container" onClick={()=>navigate(`/item/${props.entireproduct.multiverseid}`)}>
-                <img className="card-item-image" src={props.entireproduct.imageUrl ? props.entireproduct.imageUrl : "src/assets/Magic_card_back.jpg"} alt={`An image of ${props.entireproduct.name}`} />
+            <div
+                className="card-image-container"
+                onClick={() => {
+                    const id = props.entireproduct.multiverseid || props.entireproduct.id;
+                    navigate(`/item/${id}`);
+                }}
+            >                <img className="card-item-image" src={props.entireproduct.imageUrl} alt={`An image of ${props.entireproduct.name}`} />
             </div>
             <h5 className="product-description">
                 {props.entireproduct.name}
@@ -21,7 +26,7 @@ const ProductCard = (props) => {
                 <span className="item-price">
                     {props.entireproduct.price}
                 </span>
-                <Button variant="dark" onClick={()=> addToCart(props.entireproduct)}>
+                <Button variant="dark" onClick={() => addToCart(props.entireproduct)}>
                     Add to Cart
                 </Button>
             </div>

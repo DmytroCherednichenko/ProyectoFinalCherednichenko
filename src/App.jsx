@@ -16,6 +16,8 @@ import ProductDetails from './pages/product-details/ProductDetails';
 import { CartProvider } from './Context/CartContext';
 import { AuthProvider } from './Context/AuthContext';
 import { ProductsProvider } from './Context/ProductsContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <ProductsProvider>
           <CartProvider>

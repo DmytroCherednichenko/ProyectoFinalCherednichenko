@@ -25,6 +25,7 @@ export const ProductsProvider = ({ children }) => {
                 product.id === updatedProduct.id ? updatedProduct : product
             )
         );
+        console.log(updatedProduct);
     };
 
     const deleteProduct = (id) => {
@@ -33,6 +34,7 @@ export const ProductsProvider = ({ children }) => {
 
     const editProduct = (product) => {
         setProductToEdit(product);
+        console.log(product);
     };
 
 
@@ -60,7 +62,8 @@ export const ProductsProvider = ({ children }) => {
         <ProductsContext.Provider value={{
             products, setProducts,
             addProduct, updateProduct,
-            productToEdit, setProductToEdit
+            productToEdit, setProductToEdit, 
+            editProduct, deleteProduct
         }}>
             {children}
         </ProductsContext.Provider>

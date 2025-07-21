@@ -9,6 +9,7 @@ const AdminPanel = (props) => {
 
     return (
         <Container className="admin-panel">
+            <h2>Manage Products</h2>
             <ManageProducts />
             <ProductList />
         </Container>

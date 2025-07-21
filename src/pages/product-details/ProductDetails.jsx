@@ -4,6 +4,7 @@ import { getSingleProduct } from '../../assets/api-call-functions'
 import { useParams } from 'react-router-dom';
 import './productdetails.css'
 import { CartContext } from '../../Context/CartContext';
+import { ProductsContext } from '../../Context/ProductsContext';
 
 
 function ProductDetails(props) {
@@ -17,15 +18,25 @@ function ProductDetails(props) {
 
   const { addToCart } = useContext(CartContext);
 
+  const { updateProduct, addProduct, deleteProduct, editProduct, productToEdit, setProductToEdit, products } = useContext(ProductsContext);
+
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await getSingleProduct(productId);
-      setProduct(data.card);
-      setLoading(false);
+      if (productId.length < 6) {
+        const customProduct = products.find(p => p.id?.toString() === productId);
+        if (customProduct) {
+          setProduct(customProduct);
+        }
+        setLoading(false);
+      } else {
+        const data = await getSingleProduct(productId);
+        setProduct(data.card);
+        setLoading(false);
+      }
     }
     loadProducts();
-  }, [])
+  }, [productId, products]);
 
   console.log(product);
 
