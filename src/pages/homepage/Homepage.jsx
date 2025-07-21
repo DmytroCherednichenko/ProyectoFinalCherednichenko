@@ -2,6 +2,7 @@ import { Container, Spinner, Carousel } from "react-bootstrap"
 import "./homepage.css"
 import { useState } from "react";
 import CarouselImage from "../../components/carouselimage/CarouselImage";
+import TopSellers from "../../components/topsellers/TopSellers";
 
 const Homepage = () => {
     const [loading, setLoading] = useState(false);
@@ -13,16 +14,17 @@ const Homepage = () => {
             <Container fluid className="carousel-wrapper">
                 <Carousel>
                     <Carousel.Item>
-                        <CarouselImage image="src/assets/hero-image.jpg"/>
+                        <CarouselImage image="src/assets/hero-image.jpg" />
                     </Carousel.Item>
                     <Carousel.Item>
-                        <CarouselImage image="src/assets/car_img_2.jpeg"/>
+                        <CarouselImage image="src/assets/car_img_2.jpg" />
                     </Carousel.Item>
                     <Carousel.Item>
-                        <CarouselImage image="src/assets/car_img_1.jpeg"/>
+                        <CarouselImage image="src/assets/car_img_1.jpg" />
                     </Carousel.Item>
                 </Carousel>
             </Container>
+            <TopSellers></TopSellers>
             <Container className="homepage-main-wrapper">
             </Container>
         </Container >

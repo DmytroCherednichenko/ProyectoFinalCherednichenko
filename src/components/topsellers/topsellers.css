@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Planewalker';
+    src: url('/fonts/Planewalker-38m6.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.homepage-h4 {
+    background-color: #ffc107;
+    width: 200px;
+    margin: 20px auto;
+    font-family: 'Planewalker', sans-serif;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+.top-sellers-main-wrap {
+    min-height: 300px;
+    background-color: #2c313c;
+    margin: 0px;
+    width: 100vw;
+}
+
+.top-sellers-gallery img {
+    width: 300px;
+}
+
+.top-sellers-scroll-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+.top-sellers-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.top-sellers-gallery::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+}
+
+.top-seller-item {
+    flex: 0 0 auto;
+    width: 300px;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.top-seller-item:hover {
+    color: #ffc107;
+    box-shadow: 0 0 10px #ffc107, 
+                0 0 20px #ffc107;
+    border-radius: 15px;
+
+}
+
+.top-seller-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffc107;
+    border: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px 15px;
+    width: 57px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease;
+    opacity: 70%;
+}
+
+.scroll-btn:hover {
+    background-color: #e0a800;
+    opacity: 100%;
+}
+
+.scroll-btn.left {
+    left: 10px;
+}
+
+.scroll-btn.right {
+    right: 10px;
+}

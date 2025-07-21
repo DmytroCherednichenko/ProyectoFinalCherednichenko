@@ -13,8 +13,6 @@ export const ProductsProvider = ({ children }) => {
     const [counterId, setCounterId] = useState(1);
     const [loading, setLoading] = useState(true);
 
-    // setCounterId(products.length+1);
-
     const addProduct = (product) => {
         const newProduct = { ...product, id: products.length+1 };
         setProducts([...products, newProduct]);

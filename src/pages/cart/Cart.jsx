@@ -1,31 +1,32 @@
-import { Container, Spinner } from "react-bootstrap"
+import { Button, Container, Spinner } from "react-bootstrap"
 import "./cart.css"
 import { useState, useEffect, useContext } from "react"
 import { getSingleProduct } from "../../assets/api-call-functions"
 import CartItem from "../../components/cartitem/CartItem"
 import { CartContext } from "../../Context/CartContext"
+import { Link } from 'react-router-dom';
+
 
 const Cart = (props) => {
-    const [loading, setLoading] = useState(false);
     const { cart, emptyCart } = useContext(CartContext);
 
-    if (loading) return <Container className="homepage-loading"><Spinner animation="border" variant="secondary" /></Container>
-
     console.log(cart);
-    
+
     return (
         <Container className="cart-page">
             <Container className="cart-flex-wrap">
                 <div>
-
-                    <h1>Carrito de Compras</h1>
                     {cart.length > 0 ? (
-                            cart.map((item, index) => <CartItem quantity={item.quantity} key={index} image={item.imageUrl} id={item.multiverseid}></CartItem>)
+                        cart.map((item, index) => <CartItem product={item} key={index}></CartItem>)
                     ) : (
-                        <p>El carrito está vacío.</p>
+                        <div className="empty-cart-message">
+                            <h2>Your cart is empty</h2>
+                            <p>Looks like you haven't added anything yet.</p>
+                            <Link to="/allcards" className="btn btn-primary" id="shop-now-btn">Shop Now</Link>                        
+                        </div>
                     )}
-                    {cart.length > 0 && <button
-                        onClick={emptyCart}>Vaciar Carrito</button>}
+                    {cart.length > 0 && <Button variant="outline-danger" className="empty-cart-button"
+                        onClick={emptyCart}>Empty the cart</Button>}
                 </div>
             </Container>
         </Container >
