@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Button, Form, Alert, Col, Row } from "react-bootstrap";
 import { ProductsContext } from "../../Context/ProductsContext";
 import "./manageproducts.css";
+import { toast } from "react-toastify";
 
 
 function ManageProducts() {
@@ -10,7 +11,7 @@ function ManageProducts() {
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
 
-    const { updateProduct, addProduct, deleteProduct, editProduct, productToEdit, setProductToEdit, products } = useContext(ProductsContext);
+    const { updateProduct, addProduct, productToEdit, setProductToEdit } = useContext(ProductsContext);
 
 
     const onSubmit = productToEdit ? updateProduct : addProduct;
@@ -81,12 +82,11 @@ function ManageProducts() {
         }
 
         onSubmit(product);
+        toast.success(`Product ${productToEdit ? "updated" : "added"} successfully!`);
 
-        if (!productToEdit) {
-            setName('');
-            setPrice('');
-            setDescription('');
-        }
+        setName('');
+        setPrice('');
+        setDescription('');
     };
 
     return (
@@ -105,6 +105,7 @@ function ManageProducts() {
                 <Form.Label column sm={2}>Name</Form.Label>
                 <Col sm={10}>
                     <Form.Control
+                        required
                         type="text"
                         placeholder="Name of the product"
                         value={name}
@@ -116,6 +117,7 @@ function ManageProducts() {
                 <Form.Label column sm={2}>Description</Form.Label>
                 <Col sm={10}>
                     <Form.Control
+                        required
                         type="text"
                         placeholder="Description of the product"
                         value={description}
@@ -127,6 +129,7 @@ function ManageProducts() {
                 <Form.Label column sm={2}>Price</Form.Label>
                 <Col sm={10}>
                     <Form.Control
+                        required
                         type="number"
                         placeholder="Price"
                         value={price}

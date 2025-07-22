@@ -1,18 +1,17 @@
 import { Table, Button, Container, Modal } from 'react-bootstrap';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductsContext } from "../../Context/ProductsContext";
 import "./productlist.css";
 import { toast } from 'react-toastify';
 
 
-
 function ProductList() {
 
-    const { updateProduct, addProduct, deleteProduct, editProduct, productToEdit, setProductToEdit, products } = useContext(ProductsContext);
+    const { deleteProduct, editProduct, products } = useContext(ProductsContext);
     const onEdit = editProduct;
     const onDelete = deleteProduct;
-    const [showConfirm, setShowConfirm] = React.useState(false);
-    const [productToDelete, setProductToDelete] = React.useState(null);
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [productToDelete, setProductToDelete] = useState(null);
 
     const handleDeleteClick = (product) => {
         setProductToDelete(product);
