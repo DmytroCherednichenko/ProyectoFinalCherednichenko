@@ -43,7 +43,7 @@ This will open the app at http://localhost:5173
 DEPLOYMENT TO GITHUB PAGES
 ---------------------------------------------------
 
-This project is deployed and can be seen at https://dmytrocherednichenko.github.io
+This project is deployed and can be seen at https://dmytrocherednichenko.github.io/ProyectoFinalCherednichenko/
 
 ---------------------------------------------------
 ADMIN LOGIN
@@ -125,7 +125,7 @@ DESPLIEGUE EN GITHUB PAGES
 
 Este proyecto está desplegado en GitHub Pages.
 
-https://dmytrocherednichenko.github.io
+https://dmytrocherednichenko.github.io/ProyectoFinalCherednichenko
 
 ---------------------------------------------------
 LOGIN PARA ADMINISTRADOR
