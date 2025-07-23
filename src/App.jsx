@@ -11,7 +11,6 @@ import Cart from './pages/cart/Cart';
 import ProtectedRoute from './components/protectedroute/ProtectedRoute';
 import AdminPanel from './pages/admin/AdminPanel';
 import UserProfile from './pages/userprofile/UserProfile';
-import { useState, useEffect } from 'react';
 import ProductDetails from './pages/product-details/ProductDetails';
 import { CartProvider } from './Context/CartContext';
 import { AuthProvider } from './Context/AuthContext';
@@ -39,6 +38,7 @@ function App() {
                 <Subheader></Subheader>
                 <Routes>
                   <Route path='/' element={<Homepage />}></Route>
+                  <Route path='/ProyectoFinalCherednichenko/' element={<Homepage />}></Route>
                   <Route path='/allcards' element={<AllCards />}></Route>
                   <Route path='category/:rarity' element={<CategoryPage />}></Route>
                   <Route path='item/:id' element={<ProductDetails />}></Route>
