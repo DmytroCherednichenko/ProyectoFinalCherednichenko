@@ -3,6 +3,7 @@ import { Button, Form, Alert, Col, Row } from "react-bootstrap";
 import { ProductsContext } from "../../Context/ProductsContext";
 import "./manageproducts.css";
 import { toast } from "react-toastify";
+import custom_card_img from ".././../assets/Magic_card_back.jpg"
 
 
 function ManageProducts() {
@@ -64,7 +65,7 @@ function ManageProducts() {
             setName: "Lorem",
             number: "1",
             legalities: [{ format: 'Custom', legality: 'Legal' }],
-            imageUrl: "src/assets/Magic_card_back.jpg",
+            imageUrl: custom_card_img,
         };
 
         if (productToEdit) {

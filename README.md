@@ -5,6 +5,8 @@ Final Project - Magic The Gathering Cards Manager
 
 This project is a web application built with React + Vite + Bootstrap that allows users to explore, search, manage, and view Magic: The Gathering (MTG) cards. It includes an admin panel, simulated shopping cart, login system, and more.
 
+> **Note:** The public API used in this project does not support POST/PUT/DELETE requests. For that reason, all CRUD functionality (like adding or editing cards) is simulated locally within the app state.
+
 ---------------------------------------------------
 MAIN FEATURES
 ---------------------------------------------------
@@ -41,7 +43,7 @@ This will open the app at http://localhost:5173
 DEPLOYMENT TO GITHUB PAGES
 ---------------------------------------------------
 
-This project is deployed and can be seen at https://dmytrocherednichenko.github.io/ProyectoFinalCherednichenko/
+This project is deployed and can be seen at https://dmytrocherednichenko.github.io
 
 ---------------------------------------------------
 ADMIN LOGIN
@@ -84,7 +86,7 @@ Proyecto Final - Magic The Gathering Cards Manager
 ===================================================
 
 Este proyecto es una aplicación web construida con React + Vite + Bootstrap que permite explorar, buscar, administrar y visualizar cartas de Magic: The Gathering (MTG). Incluye un panel de administración, carrito de compras simulado, sistema de login y más.
-
+**Nota:** La API pública utilizada en este proyecto no admite solicitudes POST/PUT/DELETE. Por ello, todas las funciones CRUD (como añadir o editar tarjetas) se simulan localmente en el estado de la aplicación.
 ---------------------------------------------------
 CARACTERÍSTICAS PRINCIPALES
 ---------------------------------------------------
@@ -123,7 +125,7 @@ DESPLIEGUE EN GITHUB PAGES
 
 Este proyecto está desplegado en GitHub Pages.
 
-https://dmytrocherednichenko.github.io/ProyectoFinalCherednichenko
+https://dmytrocherednichenko.github.io
 
 ---------------------------------------------------
 LOGIN PARA ADMINISTRADOR
